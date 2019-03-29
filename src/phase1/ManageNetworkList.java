@@ -15,7 +15,9 @@ public class ManageNetworkList implements IManageNetworkList {
 	 * @return
 	 */
 	public StudentsList union(StudentsList lst1, StudentsList lst2) {
-		// Completed! Test passed!
+		
+		//TODO: Completed! Test passed!
+		
 		StudentsList resultList = new StudentsList();
 		for (DNode node = lst1.header.next; node != lst1.trailer; node = node.next) {
 			resultList.addLast(node.elem);
@@ -100,8 +102,15 @@ public class ManageNetworkList implements IManageNetworkList {
 	 */
 	public StudentsList locateByCity(StudentsList lst, String city) {
 
+		//TODO: COMPLETED!!! TEST PASSED!
+		
 		StudentsList l = new StudentsList();
-		// To complete
+		for(DNode node = lst.header.next; node!= lst.trailer; node= node.next) {
+			if(node.elem.city==city) {
+				l.addLast(node.elem);
+			}
+		}
+		
 		return l;
 
 	}
@@ -122,7 +131,15 @@ public class ManageNetworkList implements IManageNetworkList {
 	public StudentsList getStudentsByDateInterval(StudentsList lst, LocalDate start, LocalDate end) {
 		StudentsList resultList = new StudentsList();
 
-		// To complete
+		for(DNode node = lst.header.next; node!=lst.trailer;node=node.next) {
+			
+			if(start.isBefore(end)||start.equals(end)) {
+				if(node.elem.date_sign_in.isEqual(start) || node.elem.date_sign_in.isEqual(end) || (node.elem.date_sign_in.isAfter(start) && node.elem.date_sign_in.isBefore(end))) {
+					resultList.addLast(node.elem);
+				}
+			}
+			
+		}
 		return resultList;
 
 	}
