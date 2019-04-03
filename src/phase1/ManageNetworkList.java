@@ -42,17 +42,25 @@ public class ManageNetworkList implements IManageNetworkList {
 	public StudentsList getCampusCity(StudentsList lst, int opc) {
 
 		StudentsList l = new StudentsList();
-		// To complete
+		
+		// COMPLETED but NOT PASSED
 
 		if (opc == 1) {
-
+			for(DNode index = lst.header.next; index!=lst.trailer;index=index.next) {
+				if((index.elem.city.equals(index.elem.campus.toString()))){
+					l.addLast(index.elem);
+				}
+			}
 		} else if (opc == 2) {
-
+			for(DNode index=lst.header;index!=lst.trailer;index=index.next) {
+				if((!index.elem.city.equals(index.elem.campus.toString()))){
+					l.addLast(index.elem);
+				}
+			}
 		} else {
 			return null;
 		}
 		return l;
-
 	}
 
 	/**
@@ -74,8 +82,38 @@ public class ManageNetworkList implements IManageNetworkList {
 	public StudentsList orderBy(StudentsList lst, int opc) {
 
 		StudentsList sortedList = new StudentsList();
-
-		// To complete
+	    DNode temp;
+	    
+        //We check if the list is empty  
+        if(lst.header == null) {  
+            return null; 
+        }
+        
+		if(opc==1) { //ASCENDING
+		    for(DNode actualNode = lst.header; actualNode.next != null; actualNode = actualNode.next) {  
+                for(DNode index = actualNode.next; index != null; index = index.next) {  
+                    if(actualNode.elem.email.charAt(0) > index.elem.email.charAt(0)) {  
+                        temp = actualNode;  
+                        actualNode = index;  
+                        index = temp;  
+                    }  
+                }  
+            } 
+		}else if(opc==2) { //DESCENDING
+			for(DNode current = lst.header; current.next != null; current = current.next) {  
+                //Index will point to node next to current  
+                for(DNode index = current.next; index != null; index = index.next) {  
+                    //If current's data is greater than index's data, swap the data of current and index  
+                    if(current.elem.email.charAt(0) < index.elem.email.charAt(0)) {  
+                        temp = current;  
+                        current = index;  
+                        index = temp;  
+                    }
+                }
+			}
+		}else {
+			return null;
+		}
 
 		return sortedList;
 	}
