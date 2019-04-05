@@ -43,7 +43,7 @@ public class ManageNetworkList implements IManageNetworkList {
 
 		StudentsList l = new StudentsList();
 		
-		// COMPLETED but NOT PASSED
+		// Completed! and passed
 
 		if (opc == 1) {
 			for(DNode index = lst.header.next; index!=lst.trailer;index=index.next) {
@@ -52,13 +52,13 @@ public class ManageNetworkList implements IManageNetworkList {
 				}
 			}
 		} else if (opc == 2) {
-			for(DNode index=lst.header;index!=lst.trailer;index=index.next) {
+			for(DNode index=lst.header.next;index!=lst.trailer;index=index.next) {
 				if((!index.elem.city.equals(index.elem.campus.toString()))){
 					l.addLast(index.elem);
 				}
 			}
 		} else {
-			return null;
+			//return null;
 		}
 		return l;
 	}
