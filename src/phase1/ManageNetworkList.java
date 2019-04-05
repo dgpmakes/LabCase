@@ -57,9 +57,7 @@ public class ManageNetworkList implements IManageNetworkList {
 					l.addLast(index.elem);
 				}
 			}
-		} else {
-			//return null;
-		}
+		} 
 		return l;
 	}
 
