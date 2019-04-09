@@ -2,6 +2,7 @@ package phase2;
 
 import phase1.StudentsList;
 
+
 public class ManageNetworkTree implements IManageNetworkTree {
 
 	
@@ -14,8 +15,12 @@ public class ManageNetworkTree implements IManageNetworkTree {
 	 * @param list
 	 */
 	public void copySocialNetwork(StudentsTree tree, StudentsList list) {
+		// Completed! Test Passed!
 		
-		//To complete
+		for(int ii=0; ii<list.getSize();ii++) {
+			tree.insertStudent(list.getAt(ii));
+		}
+		
 		
 	}
 	/**
