@@ -32,13 +32,24 @@ public class ManageNetworkTree implements IManageNetworkTree {
 	 *  To obtain the list, you must traverse the tree (or subtree) in a recursive way. 
 	 * @return
 	 */
-	public StudentsList getOrderedList(StudentsTree tree){
-		
-        StudentsList sL = new StudentsList();
-       
-        //To complete
-        return sL;
+	public StudentsList getOrderedList(StudentsList list, BSTNode node){
+		       
+        if(node != null) {
+        	getOrderedList(list, node.left);
+        	list.addLast(node.oStudent);
+        	getOrderedList(list, node.right);
+        }
+        
+        return list;
     }
+	
+	public StudentsList getOrderedList(StudentsTree tree) {
+		
+		StudentsList returnList = new StudentsList();
+		
+		getOrderedList(returnList, tree.root);
+		return returnList;
+	}
 
 
 	
@@ -49,6 +60,8 @@ public class ManageNetworkTree implements IManageNetworkTree {
 	
 	public void deleteByNumberOfBlocks(StudentsTree tree,int num) {
        //To complete
+		
+		
 	}
 
 	

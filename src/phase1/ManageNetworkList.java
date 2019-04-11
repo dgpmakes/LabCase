@@ -90,7 +90,7 @@ public class ManageNetworkList implements IManageNetworkList {
 		if(opc==1) { //ASCENDING
 		    for(DNode actualNode = lst.header; actualNode.next != null; actualNode = actualNode.next) {  
                 for(DNode index = actualNode.next; index != null; index = index.next) {  
-                    if(actualNode.elem.email.charAt(0) > index.elem.email.charAt(0)) {  
+                    if(actualNode.elem.email.compareToIgnoreCase(index.elem.email)>0) {  
                         temp = actualNode;  
                         actualNode = index;  
                         index = temp;  
@@ -98,14 +98,13 @@ public class ManageNetworkList implements IManageNetworkList {
                 }  
             } 
 		}else if(opc==2) { //DESCENDING
-			for(DNode current = lst.header; current.next != null; current = current.next) {  
-                //Index will point to node next to current  
-                for(DNode index = current.next; index != null; index = index.next) {  
-                    //If current's data is greater than index's data, swap the data of current and index  
-                    if(current.elem.email.charAt(0) < index.elem.email.charAt(0)) {  
-                        temp = current;  
-                        current = index;  
-                        index = temp;  
+			for(DNode actualNode = lst.header; actualNode.next != null; actualNode = actualNode.next) {  
+                for(DNode index = actualNode.next; index != null; index = index.next) {
+                	
+                    if(actualNode.elem.email.compareToIgnoreCase(index.elem.email)<0) {  
+                        temp = actualNode;  
+                        actualNode = index;  
+                        index = temp;
                     }
                 }
 			}
@@ -124,7 +123,22 @@ public class ManageNetworkList implements IManageNetworkList {
 	 * @param opc
 	 */
 	public static void sortedInsert(StudentsList lst, Student newStudent, int opc) {
-		// To complete
+		
+		if(opc == 1) {
+			for(int i=0; i<lst.size;i++) {
+				if(newStudent.email.compareToIgnoreCase(lst.getAt(i).email)<0) {
+					lst.insertAt(i-1, newStudent);
+				}
+			}
+		}
+		
+		if (opc==2) {
+			for(int i=0; i< lst.size;i++) {	
+				if(newStudent.email.compareToIgnoreCase(lst.getAt(i).email)>0) {
+					lst.insertAt(i-1, newStudent);
+				}
+			}
+		}
 	}
 
 	/**
