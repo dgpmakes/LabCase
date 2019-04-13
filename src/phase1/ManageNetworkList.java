@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class ManageNetworkList implements IManageNetworkList {
 
 	/**
-	 * The methods must join two social networks into a single social network. The
+	 * 1. The methods must join two social networks into a single social network. The
 	 * method takes two objects of the StudentsList and returns a new list
 	 * containing first the students from the first list followed by the students
 	 * from the second list.
@@ -29,7 +29,7 @@ public class ManageNetworkList implements IManageNetworkList {
 	}
 
 	/**
-	 * This method takes a social network as input and an integer parameter opc so
+	 * 2. This method takes a social network as input and an integer parameter opc so
 	 * that: - If opc =1: the method must return a StudentsList containing all the
 	 * students residing in the same city that the campus where they are studying. -
 	 * If opc =2: the method must return a StudentsList containing all the students
@@ -61,6 +61,31 @@ public class ManageNetworkList implements IManageNetworkList {
 		return l;
 	}
 
+
+	/**
+	 * 3. This methods takes a social network (that is an object of StudentsList class)
+	 * and a city name as input and returns a list containing all the students (that
+	 * is, an object of the StudentsList class) who live in that city.
+	 * 
+	 * @param lst
+	 * @param city
+	 * @return
+	 */
+	public StudentsList locateByCity(StudentsList lst, String city) {
+
+		//TODO: COMPLETED!!! TEST PASSED!
+		
+		StudentsList l = new StudentsList();
+		for(DNode node = lst.header.next; node!= lst.trailer; node= node.next) {
+			if(node.elem.city==city) {
+				l.addLast(node.elem);
+			}
+		}
+		
+		return l;
+
+	}
+	
 	/**
 	 * 4. This method takes a social network as input and a integer parameter opc so
 	 * that: - If opc=1, the method returns a list of students sorted by ascending
@@ -108,8 +133,6 @@ public class ManageNetworkList implements IManageNetworkList {
                     }
                 }
 			}
-		}else {
-			return null;
 		}
 
 		return sortedList;
@@ -135,35 +158,12 @@ public class ManageNetworkList implements IManageNetworkList {
 		if (opc==2) {
 			for(int i=0; i< lst.size;i++) {	
 				if(newStudent.email.compareToIgnoreCase(lst.getAt(i).email)>0) {
-					lst.insertAt(i-1, newStudent);
+					lst.insertAt(i+1, newStudent);
 				}
 			}
 		}
 	}
 
-	/**
-	 * This methods takes a social network (that is an object of StudentsList class)
-	 * and a city name as input and returns a list containing all the students (that
-	 * is, an object of the StudentsList class) who live in that city.
-	 * 
-	 * @param lst
-	 * @param city
-	 * @return
-	 */
-	public StudentsList locateByCity(StudentsList lst, String city) {
-
-		//TODO: COMPLETED!!! TEST PASSED!
-		
-		StudentsList l = new StudentsList();
-		for(DNode node = lst.header.next; node!= lst.trailer; node= node.next) {
-			if(node.elem.city==city) {
-				l.addLast(node.elem);
-			}
-		}
-		
-		return l;
-
-	}
 
 	/**
 	 * This takes a social network (an object of the StudentsList class) and two
@@ -179,6 +179,7 @@ public class ManageNetworkList implements IManageNetworkList {
 	 * @return
 	 */
 	public StudentsList getStudentsByDateInterval(StudentsList lst, LocalDate start, LocalDate end) {
+		
 		StudentsList resultList = new StudentsList();
 
 		for(DNode node = lst.header.next; node!=lst.trailer;node=node.next) {
