@@ -60,10 +60,20 @@ public class ManageNetworkTree implements IManageNetworkTree {
 	
 	public void deleteByNumberOfBlocks(StudentsTree tree,int num) {
        //To complete
-		
+		deleteByNumberOfBlocks(num, tree.root, tree);
 		
 	}
-
+	private void deleteByNumberOfBlocks(int n,BSTNode node, StudentsTree tree) {
+		if(node == null) {
+			return;
+		}else {
+			if(node.oStudent.blocks >=n) {
+				tree.removeStudent(node.oStudent.email);
+			}
+			deleteByNumberOfBlocks(n, node.left, tree);
+			deleteByNumberOfBlocks(n, node.right, tree);
+		}
+	}
 	
 
 }
