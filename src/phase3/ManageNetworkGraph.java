@@ -31,13 +31,13 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public int getIndex(String student) {
 		int index=-1;
 		
-		//to compplete
+		//To complete
 
 		return index;
 	}
 	//checks if index is right and returns its associated city
 	public String checkVertex(int index) {
-		//to complete
+		//To complete
 		return null;
 	}
 	
@@ -72,7 +72,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public LinkedList<String> getDirectFriends(String studentA){
 		
 		LinkedList<String> lDirectFriends = new LinkedList<String>();
-		//to complete
+		//To complete
 		
 		return lDirectFriends;
 	}
@@ -80,7 +80,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	
 	
 	public int[] getAdjacents(int i) {
-		//to complete
+		//To complete
 		return null;
 	}
 	
@@ -88,7 +88,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	
 	public LinkedList<String> suggestedFriends(String studentA){
 		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
-		//to complete
+		//To complete
 		return lSuggestedFriends;
 	}
 	
@@ -99,12 +99,12 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	
 
 	protected LinkedList<Integer> depth(int i,boolean[] visited, LinkedList<Integer> path) {
-		//to compelte
+		//To complete
 		return path;
 	}
 	
 	public void show() {
-		//to complate
+		//To complete
 	}
 	
 	public static void main(String args[]) {
