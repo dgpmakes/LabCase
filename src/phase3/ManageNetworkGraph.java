@@ -31,7 +31,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public int getIndex(String student) {
 		int index=-1;
 		
-		//to compplete
+		//to complete
 
 		return index;
 	}
@@ -99,12 +99,12 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	
 
 	protected LinkedList<Integer> depth(int i,boolean[] visited, LinkedList<Integer> path) {
-		//to compelte
+		//to complete
 		return path;
 	}
 	
 	public void show() {
-		//to complate
+		//to complete
 	}
 	
 	public static void main(String args[]) {
