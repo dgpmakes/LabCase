@@ -59,7 +59,13 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 */
 	public void areFriends(String studentA, String studentB) {
 		
-	
+		if(getIndex(studentA)>=0 && getIndex(studentB)>=0) {
+			if(students[checkVertex(getIndex(studentA))]==null) {
+				students = new SListInt();
+			}
+			students.addLast(studentB);
+			students.
+		}
 		//To complete
 	}
 
