@@ -59,7 +59,7 @@ public class ManageNetworkTree implements IManageNetworkTree {
 	 */
 	
 	public void deleteByNumberOfBlocks(StudentsTree tree,int num) {
-       //To complete
+       //Completed! Test PASSED!
 		deleteByNumberOfBlocks(num, tree.root, tree);
 		
 	}
