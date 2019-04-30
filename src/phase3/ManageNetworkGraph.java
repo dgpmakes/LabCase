@@ -31,7 +31,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public int getIndex(String student) {
 		//COMPLETED
 		int index=-1;
-		index = students.indexOf(student);
+		index = students.indexOf(student); //we look into the students LinkedList
 		return index;
 	}
 	
@@ -45,7 +45,6 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	
 	public void addStudent(String student) {
 		students.addLast(student); //We add the student to the student String LinkedList
-		
 		lst_of_lstAdjacents.addLast(new LinkedList<Integer>());
 	}
 	
