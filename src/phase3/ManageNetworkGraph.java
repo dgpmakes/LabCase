@@ -30,9 +30,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	//searches the student and returns its index
 	public int getIndex(String student) {
 		int index=-1;
-		
-		//to complete
-
+		index = students.indexOf(student);
 		return index;
 	}
 	//checks if index is right and returns its associated city
