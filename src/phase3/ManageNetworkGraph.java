@@ -25,9 +25,9 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	// searches the student and returns its index
 	public int getIndex(String student) {
-		//COMPLETED
-		int index=-1;
-		index = students.indexOf(student); //we look into the students LinkedList
+		// COMPLETED
+		int index = -1;
+		index = students.indexOf(student); // we look into the students LinkedList
 		return index;
 	}
 
@@ -58,10 +58,9 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 */
 	public void areFriends(String studentA, String studentB) {
 
-
-		if(students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0 ) {
+		if (students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0) {
 			lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
-			lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));	
+			lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));
 		}
 	}
 
@@ -75,9 +74,14 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public LinkedList<String> getDirectFriends(String studentA) {
 
 		LinkedList<String> lDirectFriends = new LinkedList<String>();
-		
-		lst_of_lstAdjacents.get(students.indexOf(studentA));
 
+		if (students.indexOf(studentA) >= 0) {
+			int num = lst_of_lstAdjacents.get(students.indexOf(studentA)).size();
+			for (int ii = 0; ii < num; ii++) {
+				lDirectFriends.addLast(students.get(lst_of_lstAdjacents.get(students.indexOf(studentA)).get(ii)));
+			}
+
+		}
 		return lDirectFriends;
 	}
 
