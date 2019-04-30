@@ -58,10 +58,10 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 */
 	public void areFriends(String studentA, String studentB) {
 
-		
-		lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
-		lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));
-
+		if(students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0 ) {
+			lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
+			lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));	
+		}
 	}
 
 	/**
@@ -74,7 +74,8 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public LinkedList<String> getDirectFriends(String studentA) {
 
 		LinkedList<String> lDirectFriends = new LinkedList<String>();
-		// to complete
+		
+		lst_of_lstAdjacents.get(students.indexOf(studentA));
 
 		return lDirectFriends;
 	}
