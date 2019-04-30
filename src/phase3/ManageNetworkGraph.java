@@ -58,7 +58,9 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 */
 	public void areFriends(String studentA, String studentB) {
 
-		// To complete
+		
+		lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
+		lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));
 
 	}
 
