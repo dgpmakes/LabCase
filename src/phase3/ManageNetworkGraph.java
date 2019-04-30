@@ -40,7 +40,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	public void addStudent(String student) {
 
-		// COMPLETED! TEST PASSED:
+		// COMPLETED! TEST PASSED
 		if (student != null) {
 			students.addLast(student); // We add the student to the student String LinkedList
 
@@ -58,7 +58,8 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 */
 	public void areFriends(String studentA, String studentB) {
 
-		if (students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0) {
+		//COMPLETED! TEST PASSED
+		if(students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0 ) {
 			lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
 			lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));
 		}
