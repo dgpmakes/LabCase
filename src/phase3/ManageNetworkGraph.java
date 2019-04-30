@@ -29,20 +29,24 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	
 	//searches the student and returns its index
 	public int getIndex(String student) {
+		//COMPLETED
 		int index=-1;
 		index = students.indexOf(student);
 		return index;
 	}
-	//checks if index is right and returns its associated city
+	
+	//checks if index is right and returns its associated email
 	public String checkVertex(int index) {
-		//to complete
-		return null;
+		//COMPLETED
+		String toReturn = students.get(index);
+		return toReturn;
 	}
 	
 	
 	public void addStudent(String student) {
+		students.addLast(student); //We add the student to the student String LinkedList
 		
-		//To complete
+		lst_of_lstAdjacents.addLast(new LinkedList<Integer>());
 	}
 	
 	/**
