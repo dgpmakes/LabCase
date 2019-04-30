@@ -66,6 +66,7 @@ public class ManageNetworkGraphTest {
 				Arrays.equals(graph.students.toArray(),ManageNetworkGraphTest.students));
 		
 		graph.areFriends(null,"juan");
+		
 		assertEquals("Check testAreFriends (first argument null).", true, 
 				Arrays.equals(graph.students.toArray(),ManageNetworkGraphTest.students));
 		
@@ -73,9 +74,25 @@ public class ManageNetworkGraphTest {
 		assertEquals("Check testAreFriends (second argument null).", true, 
 				Arrays.equals(graph.students.toArray(),ManageNetworkGraphTest.students));
 		
-		graph.areFriends("marcos","dani");
-		assertEquals("Check testAreFriends (students not included in graph).", true, 
-				Arrays.equals(graph.students.toArray(),ManageNetworkGraphTest.students));
+		
+		graph.areFriends("luisa","manu");
+		
+		int index1=graph.getIndex("luisa");
+		int index2=graph.getIndex("manu");
+		
+		assertTrue("Check testAreFriends", index1 != -1);
+		assertTrue("Check testAreFriends", index2 != -1);
+		
+		assertTrue("Check testAreFriends .", graph.lst_of_lstAdjacents.get(index1).contains(index2));
+		
+
+		graph.areFriends("Rivera","Casado");
+		
+		index1=graph.getIndex("Rivera");
+		index2=graph.getIndex("Casado");
+		
+		assertTrue("Check testAreFriends (new students).", index1 == -1);
+		assertTrue("Check testAreFriends (new students).", index2 == -1);
 		
 
 		
