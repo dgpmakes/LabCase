@@ -99,7 +99,17 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	public LinkedList<String> suggestedFriends(String studentA) {
 		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
-		// to complete
+		
+		LinkedList<String> friends= getDirectFriends(studentA);
+		for(String elem : friends) {
+			for(int ii = 0 ; ii< lst_of_lstAdjacents.get(students.indexOf(elem)).size();ii++) {
+				if(!students.contains(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)))) {
+					lSuggestedFriends.addLast(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)));
+	
+				}
+			}
+		}
+		System.out.println(lSuggestedFriends.toString());
 		return lSuggestedFriends;
 	}
 
