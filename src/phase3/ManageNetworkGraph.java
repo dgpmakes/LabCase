@@ -87,19 +87,14 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	}
 
 	public int[] getAdjacents(int i) {
-		// to complete
-		
-		int [] adjacents = new int [students.size()];
-		if (i>=0 && i<=students.size()) {
-			String student = checkVertex(i);
-			LinkedList<String> vertexes = student;
-			vertexes.add
-			students.get(i);
-			for (int j = 0; j<adjacents.length;j++) {
-				vertexes.g
-			}
+
+	//	int[] adjacents = lst_of_lstAdjacents.get(i).toArray()  //This should work but .toArray() returns an object instead of an integer.
+		//COMPLETED! NO TEST AVAILABLE
+		int [] adjacents = new int[lst_of_lstAdjacents.get(i).size()];
+		for (int ii = 0 ; ii<adjacents.length; ii++ ) {
+			adjacents[ii] = lst_of_lstAdjacents.get(i).get(ii);
 		}
-		return null;
+		return adjacents;
 	}
 
 	public LinkedList<String> suggestedFriends(String studentA) {
