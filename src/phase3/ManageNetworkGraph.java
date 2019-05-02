@@ -88,6 +88,17 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	public int[] getAdjacents(int i) {
 		// to complete
+		
+		int [] adjacents = new int [students.size()];
+		if (i>=0 && i<=students.size()) {
+			String student = checkVertex(i);
+			LinkedList<String> vertexes = student;
+			vertexes.add
+			students.get(i);
+			for (int j = 0; j<adjacents.length;j++) {
+				vertexes.g
+			}
+		}
 		return null;
 	}
 
