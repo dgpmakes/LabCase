@@ -98,19 +98,23 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	}
 
 	public LinkedList<String> suggestedFriends(String studentA) {
-		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
 		
+		//to complete
+		if(students.indexOf(studentA)>=0) {
+		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
 		LinkedList<String> friends= getDirectFriends(studentA);
+		
 		for(String elem : friends) {
 			for(int ii = 0 ; ii< lst_of_lstAdjacents.get(students.indexOf(elem)).size();ii++) {
 				if(!students.contains(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)))) {
 					lSuggestedFriends.addLast(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)));
-	
 				}
 			}
 		}
 		System.out.println(lSuggestedFriends.toString());
 		return lSuggestedFriends;
+		}
+		return null;
 	}
 
 	public LinkedList<Integer> depth(int i, boolean[] visited) {
@@ -124,7 +128,14 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	}
 
 	public void show() {
-		// to complete
+		// COMPLETED! NO TEST AVAILABLE!
+		
+		for(int i=0;i<lst_of_lstAdjacents.size();i++) {
+			System.out.println("The friends of "+students.get(i)+ "are: ");
+			for(int k=0;k<lst_of_lstAdjacents.get(k).size();k++) {
+				System.out.println(" "+getDirectFriends(checkVertex(k)));
+			}
+		}
 	}
 
 	public static void main(String args[]) {
