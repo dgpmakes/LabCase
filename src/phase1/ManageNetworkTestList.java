@@ -150,15 +150,5 @@ public class ManageNetworkTestList{
 		assertEquals("Check getStudentsByDateInterval, list non empty", true, expected_dates.equals(result));
 		
 	}
-	
-	@Test
-	public void testOrderBy() {
-		
-		assertTrue(expected_desc_ord.equals(objManage.orderBy(input2, 2)));
-		assertTrue(expected_asc_ord.equals(objManage.orderBy(input1, 1)));
-
-	}
-	
-
 		
 }

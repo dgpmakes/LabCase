@@ -135,6 +135,41 @@ public class ManageNetworkList implements IManageNetworkList {
 			}
 		}
 
+		/*
+		 
+		 //The list is copied
+		 for(int i=0;i<lst.size;i++){
+		 	sortedList.addLast(lst.getAt(i);
+		 }
+		 
+		if (opc == 1) { // ASCENDING
+			for (int i = 0; i < sortedList.size; i++) {
+				for (int j = 1; j < sortedList.size - i; j++) {
+					if (sortedList.getAt(j).email.compareToIgnoreCase(sortedList.getAt(j).email) < 0) {
+
+						// Now students switch places
+						Student toChange = sortedList.getAt(j);
+						sortedList.removeAt(j);
+						sortedList.insertAt(j - 1, toChange);
+					}
+
+				}
+			}
+		} else if (opc == 2) { // DESCENDING
+			for (int i = 0; i < sortedList.size; i++) {
+				for (int j = 1; j < sortedList.size - i; j++) {
+					if (sortedList.getAt(j).email.compareToIgnoreCase(sortedList.getAt(j).email) > 0) {
+
+						// Now students switch places
+						Student toChange = sortedList.getAt(j);
+						sortedList.removeAt(j);
+						sortedList.insertAt(j - 1, toChange);
+					}
+
+				}
+			}
+		}
+		 */
 		return sortedList;
 	}
 
