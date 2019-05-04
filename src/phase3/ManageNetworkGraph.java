@@ -100,7 +100,11 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public LinkedList<String> suggestedFriends(String studentA) {
 		
 		//to complete
-		if(students.indexOf(studentA)>=0) {
+		
+		if(students.indexOf(studentA)==null) {
+			return null;
+		}
+		if(students.indexOf(studentA)>=0){
 		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
 		LinkedList<String> friends= getDirectFriends(studentA);
 		
