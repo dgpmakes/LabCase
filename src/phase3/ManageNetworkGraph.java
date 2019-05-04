@@ -131,14 +131,14 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 		for(int j=0; j< nodesToUse.length;j++) {
 			int nodeToPass = nodesToUse[j];
 			if(visited[nodeToPass] = false) {
-				depth(nodeToPass, visited);
+				depth(nodeToPass, visited); //we use the previous method
 			}
 		}
 		return path;
 	}
 
 	public void show() {
-		// COMPLETED! NO TEST !
+		// COMPLETED! NO TEST!
 		
 		for(int i=0;i<lst_of_lstAdjacents.size();i++) {
 			System.out.println("The friends of "+students.get(i)+ "are: ");
