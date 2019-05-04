@@ -123,12 +123,22 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	}
 
 	protected LinkedList<Integer> depth(int i, boolean[] visited, LinkedList<Integer> path) {
-		// to complete
+		// COMPLETED (i think)
+		
+		visited[i] = true;
+		int [] nodesToUse =  getAdjacents(i);
+		
+		for(int j=0; j< nodesToUse.length;j++) {
+			int nodeToPass = nodesToUse[j];
+			if(visited[nodeToPass] = false) {
+				depth(nodeToPass, visited);
+			}
+		}
 		return path;
 	}
 
 	public void show() {
-		// COMPLETED! NO TEST AVAILABLE!
+		// COMPLETED! NO TEST !
 		
 		for(int i=0;i<lst_of_lstAdjacents.size();i++) {
 			System.out.println("The friends of "+students.get(i)+ "are: ");
