@@ -58,8 +58,8 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 */
 	public void areFriends(String studentA, String studentB) {
 
-		//COMPLETED! TEST PASSED
-		if(students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0 ) {
+		// COMPLETED! TEST PASSED
+		if (students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0) {
 			lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
 			lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));
 		}
@@ -88,37 +88,45 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	public int[] getAdjacents(int i) {
 
-	//	int[] adjacents = lst_of_lstAdjacents.get(i).toArray()  //This should work but .toArray() returns an object instead of an integer.
-		//COMPLETED! NO TEST AVAILABLE
-		int [] adjacents = new int[lst_of_lstAdjacents.get(i).size()];
-		for (int ii = 0 ; ii<adjacents.length; ii++ ) {
+		// int[] adjacents = lst_of_lstAdjacents.get(i).toArray() //This should work but
+		// .toArray() returns an object instead of an integer.
+		// COMPLETED! NO TEST AVAILABLE
+		int[] adjacents = new int[lst_of_lstAdjacents.get(i).size()];
+		for (int ii = 0; ii < adjacents.length; ii++) {
 			adjacents[ii] = lst_of_lstAdjacents.get(i).get(ii);
 		}
 		return adjacents;
 	}
 
 	public LinkedList<String> suggestedFriends(String studentA) {
-		
-		//to complete
-		
-		if(students.indexOf(studentA)==null) {
-			return null;
-		}
-		if(students.indexOf(studentA)>=0){
+
+		// to complete
+
 		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
-		LinkedList<String> friends= getDirectFriends(studentA);
-		
-		for(String elem : friends) {
-			for(int ii = 0 ; ii< lst_of_lstAdjacents.get(students.indexOf(elem)).size();ii++) {
-				if(!students.contains(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)))) {
+		LinkedList<String> friends = getDirectFriends(studentA);
+		if (studentA == null) {
+			return lSuggestedFriends;
+		} else {
+			/*for(String elem : friends) {
+				lSuggestedFriends.addAll(getDirectFriends(elem));
+				
+			}*/
+			
+			for (String elem : friends) {
+				for (int ii = 0; ii < lst_of_lstAdjacents.get(students.indexOf(elem)).size(); ii++) {
+					if (!lSuggestedFriends.contains(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)))&& !students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)).equals(studentA)) {
+						System.out.println(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)));
 					lSuggestedFriends.addLast(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)));
+					}
 				}
 			}
+			
+		
+			
+			
+			System.out.println(lSuggestedFriends.toString());
+			return lSuggestedFriends;
 		}
-		System.out.println(lSuggestedFriends.toString());
-		return lSuggestedFriends;
-		}
-		return null;
 	}
 
 	public LinkedList<Integer> depth(int i, boolean[] visited) {
@@ -128,14 +136,14 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	protected LinkedList<Integer> depth(int i, boolean[] visited, LinkedList<Integer> path) {
 		// COMPLETED (i think)
-		
+
 		visited[i] = true;
-		int [] nodesToUse =  getAdjacents(i);
-		
-		for(int j=0; j< nodesToUse.length;j++) {
+		int[] nodesToUse = getAdjacents(i);
+
+		for (int j = 0; j < nodesToUse.length; j++) {
 			int nodeToPass = nodesToUse[j];
-			if(visited[nodeToPass] = false) {
-				depth(nodeToPass, visited); //we use the previous method
+			if (visited[nodeToPass] = false) {
+				depth(nodeToPass, visited); // we use the previous method
 			}
 		}
 		return path;
@@ -143,11 +151,11 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	public void show() {
 		// COMPLETED! NO TEST!
-		
-		for(int i=0;i<lst_of_lstAdjacents.size();i++) {
-			System.out.println("The friends of "+students.get(i)+ "are: ");
-			for(int k=0;k<lst_of_lstAdjacents.get(k).size();k++) {
-				System.out.println(" "+getDirectFriends(checkVertex(k)));
+
+		for (int i = 0; i < lst_of_lstAdjacents.size(); i++) {
+			System.out.println("The friends of " + students.get(i) + "are: ");
+			for (int k = 0; k < lst_of_lstAdjacents.get(k).size(); k++) {
+				System.out.println(" " + getDirectFriends(checkVertex(k)));
 			}
 		}
 	}

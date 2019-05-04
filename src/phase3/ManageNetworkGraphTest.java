@@ -125,7 +125,7 @@ public class ManageNetworkGraphTest {
 		LinkedList<String> lSuggestedFriends1 = graph.suggestedFriends("marcos");
 		assertEquals("Check testSuggestedFriends (student not included in graph).", true, 
 				Arrays.equals(lSuggestedFriends1.toArray(),ManageNetworkGraphTest.studentsEmpty));
-		
+
 		LinkedList<String> lSuggestedFriends2 = graph.suggestedFriends("luisa");
 		assertEquals("Check testSuggestedFriends", true, 
 				Arrays.equals(lSuggestedFriends2.toArray(),ManageNetworkGraphTest.suggestedFriendsOfLuisa));
