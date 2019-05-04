@@ -112,6 +112,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 				
 			}*/
 			
+			/*
 			for (String elem : friends) {
 				for (int ii = 0; ii < lst_of_lstAdjacents.get(students.indexOf(elem)).size(); ii++) {
 					if (!lSuggestedFriends.contains(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)))&& !students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)).equals(studentA)) {
@@ -121,10 +122,9 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 				}
 			}
 			
-		
+			System.out.println(lSuggestedFriends.toString());*/
 			
 			
-			System.out.println(lSuggestedFriends.toString());
 			return lSuggestedFriends;
 		}
 	}

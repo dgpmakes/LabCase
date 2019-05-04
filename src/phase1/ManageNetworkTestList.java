@@ -151,6 +151,14 @@ public class ManageNetworkTestList{
 		
 	}
 	
+	@Test
+	public void testOrderBy() {
+		
+		assertTrue(expected_desc_ord.equals(objManage.orderBy(input2, 2)));
+		assertTrue(expected_asc_ord.equals(objManage.orderBy(input1, 1)));
+
+	}
+	
 
 		
 }
