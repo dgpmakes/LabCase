@@ -13,7 +13,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 			this.students.add(students[k]);
 		}
 
-		// we must initialise each Integer list
+		// we must initialize each Integer list
 		// each index i corresponds to a student, the function
 		// getIndex is used to obtain the correspondence
 		lst_of_lstAdjacents = new LinkedList<LinkedList<Integer>>();
@@ -69,7 +69,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	/**
 	 * This takes a student (email), and returns an object of LinkedList<String>,
-	 * which contains the emails of his/her direct friends.
+	 * which contains the e-mails of his/her direct friends.
 	 * 
 	 * @param studentA
 	 * @return
