@@ -126,8 +126,10 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	 * @param friend
 	 * @param lSuggestedFriends
 	 */
-	private void suggestedFriends(String friend, LinkedList<String> lSuggestedFriends) {
-
+	public void suggestedFriends(String friend, LinkedList<String> lSuggestedFriends) {
+		
+		//We used breath-first traversal to solve this exercise
+		
 		//Looking for direct friends.
 		LinkedList<String> friends = getDirectFriends(friend);
 		
@@ -165,10 +167,10 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	}
 
 	public void show() {
-		// COMPLETED! NO TEST!
+		// COMPLETED!
 
 		for (int i = 0; i < lst_of_lstAdjacents.size(); i++) {
-			System.out.println("The friends of " + students.get(i) + "are: ");
+			System.out.println("The friends of " + students.get(i) + "are: "); //similar to a toString method to show the graph
 			for (int k = 0; k < lst_of_lstAdjacents.get(k).size(); k++) {
 				System.out.println(" " + getDirectFriends(checkVertex(k)));
 			}
