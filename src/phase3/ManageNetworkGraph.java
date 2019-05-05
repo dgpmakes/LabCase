@@ -13,7 +13,7 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 			this.students.add(students[k]);
 		}
 
-		// we must initialize each Integer list
+		// we must initialise each Integer list
 		// each index i corresponds to a student, the function
 		// getIndex is used to obtain the correspondence
 		lst_of_lstAdjacents = new LinkedList<LinkedList<Integer>>();
@@ -59,7 +59,9 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public void areFriends(String studentA, String studentB) {
 
 		// COMPLETED! TEST PASSED
+		//Checking if both students exists.
 		if (students.indexOf(studentA) >= 0 && students.indexOf(studentB) >= 0) {
+			//Add a mutual relation.
 			lst_of_lstAdjacents.get(students.indexOf(studentA)).addLast(students.indexOf(studentB));
 			lst_of_lstAdjacents.get(students.indexOf(studentB)).addLast(students.indexOf(studentA));
 		}
@@ -75,10 +77,11 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	public LinkedList<String> getDirectFriends(String studentA) {
 
 		LinkedList<String> lDirectFriends = new LinkedList<String>();
-
+		//Looking if the student exist.
 		if (students.indexOf(studentA) >= 0) {
 			int num = lst_of_lstAdjacents.get(students.indexOf(studentA)).size();
 			for (int ii = 0; ii < num; ii++) {
+				//Adding direct friends.
 				lDirectFriends.addLast(students.get(lst_of_lstAdjacents.get(students.indexOf(studentA)).get(ii)));
 			}
 
@@ -100,33 +103,43 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 
 	public LinkedList<String> suggestedFriends(String studentA) {
 
-		// to complete
+		//Completed! TEST PASSED!
 
 		LinkedList<String> lSuggestedFriends = new LinkedList<String>();
-		LinkedList<String> friends = getDirectFriends(studentA);
+		//Checking if the student is different from null
 		if (studentA == null) {
 			return lSuggestedFriends;
 		} else {
-			/*for(String elem : friends) {
-				lSuggestedFriends.addAll(getDirectFriends(elem));
-				
-			}*/
-			
-			/*
-			for (String elem : friends) {
-				for (int ii = 0; ii < lst_of_lstAdjacents.get(students.indexOf(elem)).size(); ii++) {
-					if (!lSuggestedFriends.contains(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)))&& !students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)).equals(studentA)) {
-						System.out.println(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)));
-					lSuggestedFriends.addLast(students.get(lst_of_lstAdjacents.get(students.indexOf(elem)).get(ii)));
-					}
-				}
-			}
-			
-			System.out.println(lSuggestedFriends.toString());*/
-			
-			
+			//Searching for suggested friends for studentA
+			suggestedFriends(studentA, lSuggestedFriends);
+			//Removing studentA and students that are already friends.
+			lSuggestedFriends.removeAll(getDirectFriends(studentA));
+			lSuggestedFriends.remove(studentA);
+			//System.out.println(lSuggestedFriends.toString());
 			return lSuggestedFriends;
 		}
+	}
+
+	/**
+	 * Recursive method to suggestFriends to studentA.
+	 * @param studentA
+	 * @param friend
+	 * @param lSuggestedFriends
+	 */
+	private void suggestedFriends(String friend, LinkedList<String> lSuggestedFriends) {
+
+		//Looking for direct friends.
+		LinkedList<String> friends = getDirectFriends(friend);
+		
+		for (String elem : friends) {
+			//Adding friends and looking for more.
+			if (!lSuggestedFriends.contains(elem) && elem != friend) {
+				lSuggestedFriends.add(elem);
+				suggestedFriends(elem, lSuggestedFriends);
+			}
+
+		}
+
 	}
 
 	public LinkedList<Integer> depth(int i, boolean[] visited) {
