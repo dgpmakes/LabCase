@@ -148,17 +148,19 @@ public class ManageNetworkGraph implements IManageNetworkGraph {
 	}
 
 	protected LinkedList<Integer> depth(int i, boolean[] visited, LinkedList<Integer> path) {
-		// COMPLETED (i think)
-
-		visited[i] = true;
-		int[] nodesToUse = getAdjacents(i);
-
-		for (int j = 0; j < nodesToUse.length; j++) {
-			int nodeToPass = nodesToUse[j];
-			if (visited[nodeToPass] = false) {
-				depth(nodeToPass, visited); // we use the previous method
+		// COMPLETED
+		
+		visited[i]=true; //we have passed through this vertex, so we mark it
+		path.addLast(i);
+		
+		int [] adjacents = getAdjacents(i); //the vertexes are obtained
+		
+		for(int AVertex: adjacents) {
+			if(!visited[AVertex]) { //the method goes through the vertexes that have not been visited yet
+				depth(AVertex, visited, path);  //we use recursion for every vertex
 			}
 		}
+		
 		return path;
 	}
 
