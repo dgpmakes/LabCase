@@ -165,7 +165,7 @@ public class ManageNetworkList implements IManageNetworkList {
 		// ASCENDING
 		if (opc == 1) {
 			for (int i = 0; i < lst.size; i++) { // we go through every node
-				if (newStudent.email.compareToIgnoreCase(lst.getAt(i).email) < 0) { // we compare the emails
+				if (newStudent.email.compareToIgnoreCase(lst.getAt(i).email) < 0) { // we compare the e-mails
 					lst.insertAt(i - 1, newStudent); // the new student will be inserted in his corresponding place
 				}
 			}
@@ -174,7 +174,7 @@ public class ManageNetworkList implements IManageNetworkList {
 		// DESCENDING
 		if (opc == 2) {
 			for (int i = 0; i < lst.size; i++) { // we go through every node
-				if (newStudent.email.compareToIgnoreCase(lst.getAt(i).email) > 0) { // we compare the emails
+				if (newStudent.email.compareToIgnoreCase(lst.getAt(i).email) > 0) { // we compare the e-mails
 					lst.insertAt(i + 1, newStudent); // the new student will be inserted in his corresponding place
 				}
 			}
