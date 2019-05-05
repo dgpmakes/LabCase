@@ -112,27 +112,12 @@ public class ManageNetworkList implements IManageNetworkList {
 	public StudentsList orderBy(StudentsList lst, int opc) {
 
 		StudentsList sortedList = new StudentsList();
-		// DNode temp;
-
+		
 		// We check if the list is empty
 		if (lst.header == null) {
 			return null;
 		}
-
-		/*
-		 * if(opc==1) { //ASCENDING for(DNode actualNode = lst.header; actualNode.next
-		 * != null; actualNode = actualNode.next) { for(DNode index = actualNode.next;
-		 * index != null; index = index.next) {
-		 * if(actualNode.elem.email.compareToIgnoreCase(index.elem.email)>0) { temp =
-		 * actualNode; actualNode = index; index = temp; } } } }else if(opc==2) {
-		 * //DESCENDING for(DNode actualNode = lst.header; actualNode.next != null;
-		 * actualNode = actualNode.next) { for(DNode index = actualNode.next; index !=
-		 * null; index = index.next) {
-		 * 
-		 * if(actualNode.elem.email.compareToIgnoreCase(index.elem.email)<0) { temp =
-		 * actualNode; actualNode = index; index = temp; } } } }
-		 */
-
+		
 		// The list is copied
 		for (int i = 0; i < lst.size; i++) {
 			sortedList.addLast(lst.getAt(i));
