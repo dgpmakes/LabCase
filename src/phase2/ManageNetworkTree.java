@@ -22,7 +22,7 @@ public class ManageNetworkTree implements IManageNetworkTree {
 	}
 
 	/**
-	 * This takes an object of the StudentsTree class and returns an object of the
+	 * 		This takes an object of the StudentsTree class and returns an object of the
 	 * StudentsList class containing all the students in the tree ordered by their
 	 * email. Hint: You can develop an auxiliary and recursive method which takes a
 	 * BSTNode object and a StudentsList object. You cannot use any sort algorithm
@@ -41,7 +41,9 @@ public class ManageNetworkTree implements IManageNetworkTree {
 
 		return list;
 	}
-
+	/**
+	 * Recursive Method to get an order list.
+	 */
 	public StudentsList getOrderedList(StudentsTree tree) {
 
 		StudentsList returnList = new StudentsList();
